@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class Steps {
+public class CheckoutSteps {
     private Checkout checkout = new Checkout();
     private Map<String, Integer> costMap = new HashMap<>();
 
