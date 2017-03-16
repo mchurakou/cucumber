@@ -1,4 +1,4 @@
-package com.mikalai.cucumber.test;
+package com.mikalai.cucumber.test.board;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;

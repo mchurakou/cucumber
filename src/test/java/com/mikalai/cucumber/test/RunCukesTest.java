@@ -7,8 +7,14 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = { "pretty", "html:target/cucumber" },
-        features = {"classpath:features/checkout.feature", "classpath:features/tic_tac_toe.feature"}
+        features = {
+                "classpath:features/checkout/checkout.feature",
+                "classpath:features/board/tic_tac_toe.feature",
+                "classpath:features/account/cash_withdrawal.feature"
+        }
+
 )
 
 public class RunCukesTest {
+
 }

@@ -1,4 +1,4 @@
-package com.mikalai.cucumber.test;
+package com.mikalai.cucumber.test.checkout;
 
 import com.mikalai.cucumber.checkout.Checkout;
 import cucumber.api.java.en.*;
