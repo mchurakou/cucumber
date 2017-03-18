@@ -1,4 +1,4 @@
-package com.mikalai.cucumber.account;
+package com.mikalai.cucumber.account.domain;
 
 /**
  * Created by mikalai on 3/16/2017.

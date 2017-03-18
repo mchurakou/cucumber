@@ -1,6 +1,6 @@
 package com.mikalai.cucumber.test.account.converter;
 
-import com.mikalai.cucumber.account.Money;
+import com.mikalai.cucumber.account.domain.Money;
 import cucumber.api.Transformer;
 
 

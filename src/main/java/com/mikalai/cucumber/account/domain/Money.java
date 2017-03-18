@@ -1,4 +1,4 @@
-package com.mikalai.cucumber.account;
+package com.mikalai.cucumber.account.domain;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -49,11 +49,20 @@ public class Money {
         return cent;
     }
 
+    @Override
+    public String toString() {
+        return "Money{" +
+                "dolar=" + dolar +
+                ", cent=" + cent +
+                '}';
+    }
+
     public Money add(Money amount) {
         return new Money(this.dolar + amount.dolar, this.cent + amount.cent);
     }
 
 
-
-
+    public Money minus(Money amount) {
+        return new Money(this.dolar - amount.dolar, this.cent - amount.cent);
+    }
 }
