@@ -1,4 +1,5 @@
 @web
+@balancestore
 Feature: Cash Withdrawal
   Scenario: Successful withdrawal from an account in credit
     Given my account has been credited with $100.00

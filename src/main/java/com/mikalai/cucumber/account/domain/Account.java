@@ -1,19 +1,26 @@
 package com.mikalai.cucumber.account.domain;
 
+import com.mikalai.cucumber.account.store.BalanceStore;
+import com.mikalai.cucumber.account.store.TransactionQueue;
+
 /**
  * Created by mikalai on 3/16/2017.
  */
 public class Account {
-    private Money balance = new Money(0,0);
+    private TransactionQueue queue = new TransactionQueue();
+
+
     public void credit(Money amount) {
-        balance = balance.add(amount);
+        queue.write("+" + amount.toString());
     }
+
     public Money getBalance() {
-        return balance;
+        return BalanceStore.getBalance();
     }
 
 
     public void debit(int dollars) {
-        balance = balance.minus(new Money(dollars, 0));
+        Money amount = new Money(dollars, 0);
+        queue.write("-" + amount.toString());
     }
 }
