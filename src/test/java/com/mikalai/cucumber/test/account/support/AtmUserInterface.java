@@ -10,18 +10,18 @@ import org.openqa.selenium.By;
  * Created by mikalai on 3/18/2017.
  */
 public class AtmUserInterface implements Teller {
-    private KnowsTheDomain helper;
+    private MyWebDriver webDriver;
 
-    public AtmUserInterface(KnowsTheDomain helper) {
-        this.helper = helper;
+    public AtmUserInterface(MyWebDriver webDriver) {
+        this.webDriver = webDriver;
     }
 
 
 
     public void withdrawFrom(Account account, int dollars) {
-            helper.getWebDriver().get("http://localhost:" + ServerHooks.PORT);
-            helper.getWebDriver().findElement(By.id("Amount"))
+        webDriver.get("http://localhost:" + ServerHooks.PORT);
+        webDriver.findElement(By.id("Amount"))
                     .sendKeys(String.valueOf(dollars));
-            helper.getWebDriver().findElement(By.id("Withdraw")).click();
+        webDriver.findElement(By.id("Withdraw")).click();
     }
 }

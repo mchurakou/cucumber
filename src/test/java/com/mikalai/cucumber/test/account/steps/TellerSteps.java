@@ -1,6 +1,7 @@
 package com.mikalai.cucumber.test.account.steps;
 
-import com.mikalai.cucumber.test.account.support.KnowsTheDomain;
+import com.mikalai.cucumber.test.account.support.AtmUserInterface;
+import com.mikalai.cucumber.test.account.support.TestAccountHelper;
 import cucumber.api.java.en.When;
 
 /**
@@ -8,14 +9,16 @@ import cucumber.api.java.en.When;
  */
 public class TellerSteps {
 
-    private KnowsTheDomain helper;
+    private AtmUserInterface teller;
+    private TestAccountHelper testAccount;
 
-    public TellerSteps(KnowsTheDomain helper) {
-        this.helper = helper;
+    public TellerSteps(AtmUserInterface teller, TestAccountHelper testAccount ) {
+        this.teller = teller;
+        this.testAccount = testAccount;
     }
 
     @When("^I withdraw \\$(\\d+)$")
     public void iRequest$(int amount) throws Throwable {
-        helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
+        teller.withdrawFrom(testAccount.getMyAccount(), amount);
     }
 }

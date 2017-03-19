@@ -1,6 +1,6 @@
 package com.mikalai.cucumber.test.account.steps;
 
-import com.mikalai.cucumber.test.account.support.KnowsTheDomain;
+import com.mikalai.cucumber.account.domain.CashSlot;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 
@@ -9,10 +9,10 @@ import org.junit.Assert;
  */
 public class CashSlotSteps {
 
-    private KnowsTheDomain helper;
+    private CashSlot cashSlot;
 
-    public CashSlotSteps(KnowsTheDomain helper) {
-        this.helper = helper;
+    public CashSlotSteps(CashSlot helper) {
+        this.cashSlot = helper;
     }
 
     @Then("^\\$(\\d+) should be dispensed$")
@@ -22,6 +22,6 @@ public class CashSlotSteps {
         } catch (InterruptedException e) {
         }
 
-        Assert.assertEquals("Incorrect amount dispensed -", dollars, helper.getCashSlot().getContents());
+        Assert.assertEquals("Incorrect amount dispensed -", dollars, cashSlot.getContents());
     }
 }
