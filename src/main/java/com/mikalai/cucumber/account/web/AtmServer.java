@@ -27,7 +27,4 @@ public class AtmServer
         server.stop();
         System.out.println("Server shutdown");
     }
-    public static void main(String[] args) throws Exception {
-//        new AtmServer(9988).start();
-    }
 }
