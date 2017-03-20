@@ -26,11 +26,20 @@ public class WithdrawalServlet extends HttpServlet
     {
         Teller teller = new AutomatedTeller(cashSlot);
         int amount = Integer.parseInt(request.getParameter("amount"));
-        teller.withdrawFrom(account, amount);
-        response.setContentType("text/html");
-        response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().println(
-                "<html><head><title>ATM</title></head>" +
-                        "<body>Please take your $" + amount + "</body></html>");
+        try {
+            teller.withdrawFrom(account, amount);
+            response.setContentType("text/html");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().println(
+                    "<html><head><title>ATM</title></head>" +
+                            "<body>Please take your $" + amount + "</body></html>");
+        } catch (RuntimeException e) {
+            response.setContentType("text/html");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().println(
+                    "<html><head><title>ATM</title></head>" +
+                            "<body>" + e.getMessage() + "</body></html>");
+
+        }
     }
 }

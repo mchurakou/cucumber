@@ -10,16 +10,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <context:component-scan base-package="com.mikalai.cucumber" />
 
     <bean class="com.mikalai.cucumber.test.account.support.AtmUserInterface" scope="cucumber-glue" />
-    <bean class="com.mikalai.cucumber.account.domain.CashSlot" scope="cucumber-glue" />
+    <bean class="com.mikalai.cucumber.test.account.support.TestCashSlot" scope="cucumber-glue" />
 
     <bean class="com.mikalai.cucumber.test.account.support.AccountFactory" factory-method="createTestAccount"
           lazy-init="true" scope="cucumber-glue" />
 
-    <bean class="org.openqa.selenium.support.events.EventFiringWebDriver"
-          scope="cucumber-glue" destroy-method="close">
-        <constructor-arg>
-            <bean class="org.openqa.selenium.firefox.FirefoxDriver"
-                  scope="cucumber-glue"/>
-        </constructor-arg>
-    </bean>
 </beans>

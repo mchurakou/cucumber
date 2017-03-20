@@ -16,7 +16,7 @@ public class AutomatedTeller implements Teller {
 
     @Override
     public void withdrawFrom(Account account, int dollars) {
-        account.debit(dollars);
         cashSlot.dispense(dollars);
+        account.debit(dollars);
     }
 }
