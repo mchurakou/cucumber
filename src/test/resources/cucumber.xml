@@ -9,10 +9,13 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <context:annotation-config/>
     <context:component-scan base-package="com.mikalai.cucumber" />
 
-    <bean class="com.mikalai.cucumber.test.account.support.AtmUserInterface" scope="cucumber-glue" />
     <bean class="com.mikalai.cucumber.test.account.support.TestCashSlot" scope="cucumber-glue" />
 
     <bean class="com.mikalai.cucumber.test.account.support.AccountFactory" factory-method="createTestAccount"
           lazy-init="true" scope="cucumber-glue" />
+
+    <bean class="com.mikalai.cucumber.test.account.support.AtmInterfaceFactory" factory-method="createAtmInterface"
+          lazy-init="true" scope="cucumber-glue" />
+
 
 </beans>

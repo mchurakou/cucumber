@@ -1,7 +1,6 @@
 package com.mikalai.cucumber.test.account.support;
 
 import com.mikalai.cucumber.account.domain.Account;
-import com.mikalai.cucumber.account.domain.teller.Teller;
 import com.mikalai.cucumber.test.account.hook.ServerHooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -18,7 +17,7 @@ import java.util.List;
  * Created by mikalai on 3/18/2017.
  */
 
-public class AtmUserInterface implements Teller {
+public class AtmUserInterface implements AtmInterface {
     @Autowired
     private EventFiringWebDriver webDriver;
 
@@ -29,6 +28,7 @@ public class AtmUserInterface implements Teller {
         webDriver.findElement(By.id("Withdraw")).click();
     }
 
+    @Override
     public boolean isDisplaying(String message) {
         By locator = By.xpath("//*[contains(text(),'" + message + "')]");
         WebDriverWait wait = new WebDriverWait(webDriver, 2, 30);
@@ -38,6 +38,7 @@ public class AtmUserInterface implements Teller {
         return (list.size() > 0);
     }
 
+    @Override
     public void type(int amount) {
         webDriver.get("http://localhost:" + ServerHooks.PORT);
         WebElement input = webDriver.findElement(By.id("Amount"));

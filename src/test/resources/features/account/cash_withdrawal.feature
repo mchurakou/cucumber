@@ -15,7 +15,7 @@ Feature: Cash Withdrawal
     And $0 should be dispensed
     And the balance of my account should be $100.00
 
-
+  @bypass_teller_ui
   Scenario: Unsuccessful withdrawal due to insufficient ATM funds
     Given my account has been credited with $100.00
     And the ATM contains $10

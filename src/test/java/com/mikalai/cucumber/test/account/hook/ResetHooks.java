@@ -2,6 +2,7 @@ package com.mikalai.cucumber.test.account.hook;
 
 import com.mikalai.cucumber.account.domain.Account;
 import com.mikalai.cucumber.account.store.TransactionQueue;
+import com.mikalai.cucumber.test.account.support.AtmInterfaceFactory;
 import cucumber.api.java.Before;
 import org.javalite.activejdbc.Base;
 
@@ -18,4 +19,10 @@ public class ResetHooks {
         Account.deleteAll();
         TransactionQueue.clear();
     }
+
+    @Before(order = 1)
+    public void resetFactory() {
+        AtmInterfaceFactory.reset();
+    }
+
 }
