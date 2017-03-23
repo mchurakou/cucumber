@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         features = {
                 "classpath:features/checkout/checkout.feature",
                 "classpath:features/board/tic_tac_toe.feature",
-                "classpath:features/account/cash_withdrawal.feature"
+                "classpath:features/account/cash_withdrawal.feature",
+                "classpath:features/fruit/fruit_list.feature"
         }
 
 )
